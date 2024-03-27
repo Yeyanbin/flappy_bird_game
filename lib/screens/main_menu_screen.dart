@@ -2,6 +2,7 @@ import 'package:flappy_bird_game/game/assets.dart';
 import 'package:flappy_bird_game/game/flappy_bird_game.dart';
 import 'package:flutter/material.dart';
 
+// 菜单覆盖层
 class MainMenuScreen extends StatelessWidget {
   final FlappyBirdGame game;
   static const String id = 'mainMenu';

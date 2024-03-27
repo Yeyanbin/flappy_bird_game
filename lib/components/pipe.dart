@@ -6,6 +6,7 @@ import 'package:flappy_bird_game/game/configuration.dart';
 import 'package:flappy_bird_game/game/flappy_bird_game.dart';
 import 'package:flappy_bird_game/game/pipe_position.dart';
 
+// 管道
 class Pipe extends SpriteComponent with HasGameRef<FlappyBirdGame> {
   Pipe({
     required this.pipePosition,
@@ -22,6 +23,7 @@ class Pipe extends SpriteComponent with HasGameRef<FlappyBirdGame> {
     final pipeRotated = await Flame.images.load(Assets.pipeRotated);
     size = Vector2(50, height);
 
+    // 管道的位置
     switch (pipePosition) {
       case PipePosition.top:
         position.y = 0;
@@ -33,6 +35,7 @@ class Pipe extends SpriteComponent with HasGameRef<FlappyBirdGame> {
         break;
     }
 
+    // 增加碰撞检测
     add(RectangleHitbox());
   }
 }

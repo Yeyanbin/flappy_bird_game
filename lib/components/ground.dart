@@ -12,12 +12,18 @@ class Ground extends ParallaxComponent<FlappyBirdGame>
 
   @override
   Future<void> onLoad() async {
+    // 地面的图像资源。
     final ground = await Flame.images.load(Assets.ground);
+
+    // 初始化了地面的视差效果。
     parallax = Parallax([
       ParallaxLayer(
+        // 以创建一个表示地面的视差层。通过 fill: LayerFill.none 参数，指定了图像不填充整个视差层，保持原始大小。
         ParallaxImage(ground, fill: LayerFill.none),
       ),
     ]);
+    
+    // 地面组件中添加了一个矩形碰撞体 RectangleHitbox，用于检测小鸟与地面的碰撞。
     add(
       RectangleHitbox(
         position: Vector2(0, gameRef.size.y - Config.groundHeight),
@@ -29,6 +35,8 @@ class Ground extends ParallaxComponent<FlappyBirdGame>
   @override
   void update(double dt) {
     super.update(dt);
+    // print('ground update ${dt}');
+    // 视差层级的移动速度
     parallax?.baseVelocity.x = Config.gameSpeed;
   }
 }
